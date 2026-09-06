@@ -36,14 +36,14 @@ export default function IndustriesPage() {
                 Live Production Case Study
               </h2>
             </div>
-            <span className="font-mono text-[10px] uppercase tracking-widest bg-neutral-900 text-white px-3.5 py-1 font-semibold">
+            <span className="font-mono text-[10px] uppercase tracking-widest bg-neutral-900 text-white px-3.5 py-1 font-semibold rounded-full">
               Live Production Build
             </span>
           </div>
 
           <div className="bg-white border border-neutral-200/80 p-8 sm:p-10 lg:p-12 shadow-sm">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-              
+
               {/* Clean Image Frame */}
               <div className="lg:col-span-6 relative border border-neutral-200 bg-white aspect-[16/10] flex items-center justify-center p-8 sm:p-12 group overflow-hidden">
                 <img
@@ -118,7 +118,7 @@ export default function IndustriesPage() {
                 Home Services & Construction
               </h2>
             </div>
-            <span className="font-mono text-[10px] uppercase tracking-widest bg-neutral-900 text-white px-3.5 py-1 font-semibold">
+            <span className="font-mono text-[10px] uppercase tracking-widest bg-neutral-900 rounded-full text-white px-3.5 py-1 font-semibold">
               Current Core
             </span>
           </div>
@@ -156,7 +156,7 @@ export default function IndustriesPage() {
 
         {/* 4. VISUAL CONNECTOR BETWEEN PHASE 1 AND PHASE 2 */}
         <div className="py-12 flex flex-col items-center justify-center text-center space-y-3">
-          <div className="w-10 h-10 border border-neutral-300 flex items-center justify-center text-neutral-600 bg-white shadow-sm animate-bounce">
+          <div className="w-10 h-10 border border-neutral-300 flex items-center justify-center rounded-full text-neutral-600 bg-white shadow-sm animate-bounce">
             <FiChevronDown className="w-5 h-5" />
           </div>
           <span className="font-mono text-[11px] font-semibold tracking-[0.25em] uppercase text-neutral-500">
@@ -176,7 +176,7 @@ export default function IndustriesPage() {
                 Expansion Sectors
               </h2>
             </div>
-            <span className="font-mono text-[10px] uppercase tracking-widest bg-neutral-200 text-neutral-800 px-3.5 py-1 font-semibold">
+            <span className="font-mono text-[10px] uppercase tracking-widest bg-neutral-200 text-neutral-800 px-3.5 py-1 font-semibold rounded-full">
               Future Scale
             </span>
           </div>
