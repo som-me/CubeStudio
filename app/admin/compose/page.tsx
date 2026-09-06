@@ -81,9 +81,14 @@ function EmailPreview({ form }: { form: FormState }) {
         )}
 
         <div style={{ textAlign: "left", marginBottom: "28px" }}>
-          <span style={{ display: "inline-block", backgroundColor: "#171717", color: "#ffffff", textDecoration: "none", padding: "12px 24px", fontSize: "12px", fontFamily: "monospace", textTransform: "uppercase", letterSpacing: "1.5px", fontWeight: 600 }}>
+          <a
+            href="https://cubestudio-one.vercel.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ display: "inline-block", backgroundColor: "#171717", color: "#ffffff", textDecoration: "none", padding: "12px 24px", fontSize: "12px", fontFamily: "monospace", textTransform: "uppercase", letterSpacing: "1.5px", fontWeight: 600 }}
+          >
             Start A Conversation →
-          </span>
+          </a>
         </div>
       </div>
 
@@ -320,22 +325,20 @@ function Composer() {
       <div className="flex items-center gap-0 mb-8 border-b border-neutral-200">
         <button
           onClick={() => setActiveTab("compose")}
-          className={`inline-flex items-center gap-2 py-3 px-5 text-xs font-mono uppercase tracking-wider font-semibold border-b-2 transition-all -mb-px ${
-            activeTab === "compose"
+          className={`inline-flex items-center gap-2 py-3 px-5 text-xs font-mono uppercase tracking-wider font-semibold border-b-2 transition-all -mb-px ${activeTab === "compose"
               ? "border-neutral-900 text-neutral-900"
               : "border-transparent text-neutral-400 hover:text-neutral-700"
-          }`}
+            }`}
         >
           <FiEdit2 className="w-3.5 h-3.5" />
           Compose
         </button>
         <button
           onClick={() => setActiveTab("preview")}
-          className={`inline-flex items-center gap-2 py-3 px-5 text-xs font-mono uppercase tracking-wider font-semibold border-b-2 transition-all -mb-px ${
-            activeTab === "preview"
+          className={`inline-flex items-center gap-2 py-3 px-5 text-xs font-mono uppercase tracking-wider font-semibold border-b-2 transition-all -mb-px ${activeTab === "preview"
               ? "border-neutral-900 text-neutral-900"
               : "border-transparent text-neutral-400 hover:text-neutral-700"
-          }`}
+            }`}
         >
           <FiEye className="w-3.5 h-3.5" />
           Live Preview

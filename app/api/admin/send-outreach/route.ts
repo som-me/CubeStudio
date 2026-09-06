@@ -102,7 +102,7 @@ export async function POST(request: NextRequest) {
 
           <!-- CTA -->
           <div style="text-align: left; margin-bottom: 28px;">
-            <a href="https://cubestudio.in/contact" style="display: inline-block; background-color: #171717; color: #ffffff; text-decoration: none; padding: 12px 24px; font-size: 12px; font-family: monospace; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600;">
+            <a href="https://cubestudio-one.vercel.app" style="display: inline-block; background-color: #171717; color: #ffffff; text-decoration: none; padding: 12px 24px; font-size: 12px; font-family: monospace; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600;">
               Start A Conversation →
             </a>
           </div>
