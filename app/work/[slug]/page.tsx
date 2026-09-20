@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { FiArrowLeft, FiClock, FiLayers, FiBriefcase, FiCompass } from "react-icons/fi";
+import { FiArrowLeft, FiArrowUpRight, FiClock, FiLayers, FiBriefcase, FiCompass } from "react-icons/fi";
 import type { Metadata } from "next";
 
 interface ProjectDetail {
@@ -15,6 +15,8 @@ interface ProjectDetail {
   overview: string;
   challenge: string;
   solution: string;
+  /** When set, renders a live-site CTA button on this project's detail page. */
+  liveUrl?: string;
 }
 
 const PROJECT_DETAILS: Record<string, ProjectDetail> = {
@@ -29,7 +31,8 @@ const PROJECT_DETAILS: Record<string, ProjectDetail> = {
     techStack: ["Unreal Engine 5", "Blender", "CAD Rendering"],
     overview: "Aethelgard Villa is an architectural exploration of brutalist design integrated into coastal environments. The structure uses self-shading concrete blocks, extensive glazing, and cantilevered slabs to offer immersive panoramas while maintaining thermodynamic efficiency.",
     challenge: "Harmonizing raw structural concrete with the organic textures of coastal vegetation, while maintaining a sense of luxurious comfort and domestic intimacy.",
-    solution: "We designed open-plan living zones that transition seamlessly into stone-walled outdoor patios, using low-angle natural light to highlight the texture of form-work concrete."
+    solution: "We designed open-plan living zones that transition seamlessly into stone-walled outdoor patios, using low-angle natural light to highlight the texture of form-work concrete.",
+    liveUrl: "https://thornwald.vercel.app/",
   },
   "nebula-os-terminal": {
     title: "Nebula OS Terminal",
@@ -129,6 +132,19 @@ export default async function ProjectPage({ params }: Props) {
           <h1 className="font-sans font-medium text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight text-neutral-950 leading-[1.15] max-w-4xl">
             {project.title}
           </h1>
+
+          {/* Live-site CTA — only rendered when project.liveUrl is set */}
+          {project.liveUrl && (
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group mt-8 inline-flex items-center gap-2.5 text-[11px] font-mono font-medium tracking-[0.2em] uppercase text-neutral-600 border border-neutral-300/70 rounded-full px-5 py-2.5 hover:bg-neutral-900 hover:text-white hover:border-neutral-900 transition-all duration-300 ease-out"
+            >
+              Enter the Site
+              <FiArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:rotate-45" />
+            </a>
+          )}
         </div>
 
         {/* Full-bleed Project Mockup */}

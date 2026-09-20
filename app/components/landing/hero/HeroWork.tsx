@@ -12,6 +12,10 @@ interface Project {
   image: string;
   slug: string;
   colSpan: 1 | 2; // 1 = spans 1 column (half width on desktop), 2 = spans 2 columns (full width)
+  /** When set, the card links to this URL (new tab) instead of the internal slug route. */
+  externalUrl?: string;
+  /** When true, renders a small "Latest" badge next to the project number. Move to whichever project is most recent. */
+  isLatest?: boolean;
 }
 
 /**
@@ -30,6 +34,8 @@ const PROJECTS: Project[] = [
     image: "/image/work_villa.jpg",
     slug: "aethelgard-villa-concept",
     colSpan: 1,
+    externalUrl: "https://thornwald.vercel.app/",
+    isLatest: true,
   },
   {
     num: "02",
@@ -89,10 +95,17 @@ function WorkCard({ project }: { project: Project }) {
     };
   }, []);
 
+  // Resolve href and anchor props based on whether an externalUrl is provided
+  const linkHref = project.externalUrl ?? `/work/${project.slug}`;
+  const externalProps = project.externalUrl
+    ? { target: "_blank", rel: "noopener noreferrer" }
+    : {};
+
   return (
     <Link
       ref={cardRef}
-      href={`/work/${project.slug}`}
+      href={linkHref}
+      {...externalProps}
       className={`group flex flex-col justify-between transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] decoration-transparent outline-none ${project.colSpan === 2 ? "md:col-span-2" : "md:col-span-1"
         } ${isVisible ? "translate-y-0 opacity-100" : "translate-y-16 opacity-0"}`}
     >
@@ -116,6 +129,27 @@ function WorkCard({ project }: { project: Project }) {
             <span className="font-mono text-[10px] tracking-wider uppercase text-neutral-400 font-medium">
               {project.num}
             </span>
+            {/* "Latest" badge — data-driven via project.isLatest; move the flag to whichever project is most recent */}
+            {project.isLatest && (
+              <span
+                style={{
+                  fontFamily: "inherit",
+                  fontSize: "9px",
+                  letterSpacing: "0.18em",
+                  textTransform: "uppercase",
+                  color: "#8a8580",
+                  border: "1px solid #d5d2ce",
+                  borderRadius: "999px",
+                  padding: "2px 7px",
+                  lineHeight: 1,
+                  fontWeight: 500,
+                  whiteSpace: "nowrap",
+                  userSelect: "none",
+                }}
+              >
+                Latest
+              </span>
+            )}
             <h3 className="font-sans font-medium text-lg sm:text-xl text-neutral-800 transition-colors group-hover:text-black">
               {project.title}
             </h3>
